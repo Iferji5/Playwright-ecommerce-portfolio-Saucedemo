@@ -1,92 +1,100 @@
 # Playwright E2E Automation - E-commerce Portfolio
 
-This project is a Playwright + TypeScript test automation framework designed to validate critical user flows in an e-commerce application.
-It demonstrates modern QA practices including end-to-end testing, reusable architecture, and CI/CD integration with GitHub Actions.
+Playwright + TypeScript framework focused on end-to-end testing for `saucedemo.com`.
+The objective is to validate critical commerce flows with a clean architecture and CI-ready execution.
 
 ## Project Goals
 
-- Validate real business flows (login, product selection, cart, checkout)
-- Showcase a maintainable test architecture
-- Run tests across multiple browsers
-- Integrate automated testing into a CI/CD pipeline
-- Provide debugging artifacts (reports, traces, screenshots)
+- Validate business-critical flows (login, inventory, cart, checkout)
+- Demonstrate maintainable automation design
+- Execute tests on Chromium, Firefox, and WebKit
+- Integrate test execution into CI/CD
+- Preserve failure evidence for fast debugging
 
 ## Test Coverage
 
-The framework covers both positive and negative scenarios:
+### Core Flows
 
-### Core flows
+- Login with valid and invalid credentials
+- Inventory list and product interactions
+- Product sorting
+- Add/remove items in cart
+- End-to-end checkout
 
-- User login (valid and invalid)
-- Product inventory validation
-- Sorting functionality
-- Add/remove products from cart
-- Complete checkout process
+### Validation Scenarios
 
-### Validation scenarios
-
-- Login failure handling
-- Checkout form validation (empty fields)
-- Cart state validation
+- Login error handling
+- Checkout form validation for empty fields
+- Cart state consistency checks
 
 ## Architecture
 
-The project follows a clean and scalable structure:
-
 - Page Object Model (POM) for UI abstraction
-- Reusable helpers and test data
-- Separation of concerns (pages, tests, fixtures)
-- Dynamic locators for flexibility and scalability
+- Reusable test data and helpers
+- Clear separation of concerns (`pages/`, `tests/`, `fixtures/`)
+- Dynamic, resilient locators for scalability
 
 ## Tech Stack
 
 - Playwright
 - TypeScript
 - Node.js
-- GitHub Actions (CI/CD)
+- GitHub Actions
 
-## CI/CD Integration
+## CI/CD
 
-The project includes a GitHub Actions pipeline that:
+The GitHub Actions workflow runs on each push and pull request, executes the suite in Chromium/Firefox/WebKit, and publishes test artifacts.
 
-- Runs tests on every push and pull request
-- Executes tests across:
-  - Chromium
-  - Firefox
-  - WebKit
-- Uploads:
-  - HTML reports
-  - Test results
-  - Debugging artifacts (screenshots, traces)
+Artifacts include:
+
+- HTML report
+- Test results
+- Screenshots and traces for failures
 
 ## Reporting and Debugging
 
-- HTML test reports
-- Trace viewer for failed tests
+- Playwright HTML report
+- Trace Viewer for failed tests
 - Screenshots on failure
-- Video recording on failure
+- Video recordings on failure
 
-## How to Run Locally
+## Run Locally
 
 ```bash
 npm ci
 npx playwright install
-npm test
+npx playwright test
+```
+
+Open the report:
+
+```bash
+npx playwright show-report
+```
+
+## Project Structure
+
+```text
+.
+|-- .github/workflows/       # CI pipeline
+|-- fixtures/                # Test data
+|-- pages/                   # Page Object Model classes
+|-- tests/                   # E2E specs
+|-- playwright.config.ts     # Playwright configuration
+`-- tsconfig.json            # TypeScript configuration
 ```
 
 ## Future Improvements
 
 - API-based test data setup
-- Authentication reuse (storage state)
-- Tag-based execution (smoke/regression)
-- Visual testing
+- Auth state reuse via storage state
+- Tag-based execution (`smoke`, `regression`)
+- Visual validation
 - Performance testing integration
 
-## What this project demonstrates
+## What This Portfolio Demonstrates
 
-This project is not only about automating tests, but about:
-
-- Designing scalable automation frameworks
-- Applying real QA decision-making
-- Building CI-ready test suites
-- Writing clean, maintainable, and reusable code
+- Scalable automation framework design
+- Practical QA decision-making
+- CI-ready test suite implementation
+- Clean, maintainable, reusable test code
