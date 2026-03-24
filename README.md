@@ -48,7 +48,7 @@ The GitHub Actions workflow runs on each push and pull request, executes the sui
 Artifacts include:
 
 - HTML report
-- Test results
+- Test results.
 - Screenshots and traces for failures
 
 ## Reporting and Debugging

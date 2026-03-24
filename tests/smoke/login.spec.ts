@@ -16,7 +16,7 @@ test.describe('login',() => {
 
     });
 
-    test('show error for lockeout user',async ({page})=>{
+    test('show error for lockedout user',async ({page})=>{
         const loginPage = new LoginPage(page);
 
         await loginPage.goto();
@@ -24,6 +24,4 @@ test.describe('login',() => {
 
         await expect(loginPage.errorMessage).toBeVisible()
     })
-
-
 });
